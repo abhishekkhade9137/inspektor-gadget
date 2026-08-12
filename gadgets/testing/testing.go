@@ -45,6 +45,10 @@ const (
 	GccImage              = "ghcr.io/inspektor-gadget/ci/gcc:latest"
 	NetworkMultitoolImage = "ghcr.io/inspektor-gadget/ci/network-multitool:latest"
 	RegistryImage         = "ghcr.io/inspektor-gadget/ci/registry:2"
+	// PythonImage is pinned to 3.13 (not the floating "3" tag) because the OTel
+	// eBPF profiler only symbolizes CPython up to 3.14. See the same pin in
+	// .github/workflows/dockerhub-mirror.yml.
+	PythonImage = "ghcr.io/inspektor-gadget/ci/python:3.13-slim"
 )
 
 func SkipK8sDistros(t testing.TB, distros ...string) {
